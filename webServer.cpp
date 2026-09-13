@@ -45,7 +45,7 @@ int readHeader(int sockFd, std::string &filename, std::string &request, std::str
     size_t endRequest = lineString.find(' ');
     std::string getPostHead = lineString.substr(0, endRequest);
 
-    if(getPostHead == GET || getPostHead == POST || getPostHead == HEAD){
+  if(getPostHead == "GET" || getPostHead == "POST" || getPostHead == "HEAD"){
         request = getPostHead;
     }
     else{

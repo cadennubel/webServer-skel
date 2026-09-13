@@ -54,7 +54,7 @@ int readHeader(int sockFd, std::string &filename, std::string &request, std::str
     }
 
     // Get Content-Length for POST requests.
-    if(request == POST){
+    if(request == "POST"){
 
         size_t lengthStart = container.find("Content-Length:");
 

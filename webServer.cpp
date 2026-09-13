@@ -25,7 +25,7 @@ int processConnection(int sockFd) {
   } else if (connectionResponse == 200 && request == HEAD) {
     sendHeader(sockFd, filename);
   } else if (connectionResponse == 200 && request == POST) {
-    saveFile(sockFd, filename, bodyBegin, contentLength);
+    saveFile(sockFd, filename);
   }
   return 0;
 }

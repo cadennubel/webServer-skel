@@ -111,7 +111,6 @@ void send404(int sockFd){
   std::string contentType ="content-type: text/html";
   std::string noText = "";
   std::string friendlyMessage = "Your request is not able to be completed from this server.";
-  std::string contentLength = "Content-Length: " + std::to_string(body.length());
   sendLine(sockFd, message404);
   sendLine(sockFd, contentType);
   sendLine(sockFd, noText);
@@ -310,11 +309,11 @@ int processConnection(int sockFd) {
     send400(sockFd);
   } else if (connectionResponse == 404) {
     send404(sockFd);
-  } else if (connectionResponse == 200 && request == GET) {
+  } else if (connectionResponse == 200 && request == "GET") {
     sendFile(sockFd, filename);
-  } else if (connectionResponse == 200 && request == HEAD) {
+  } else if (connectionResponse == 200 && request == "HEAD") {
     sendHeader(sockFd, filename);
-  } else if (connectionResponse == 200 && request == POST) {
+  } else if (connectionResponse == 200 && request == "POST") {
     saveFile(sockFd, filename, bodyBegin, contentLength);
   }
   return 0;

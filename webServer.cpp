@@ -1,3 +1,5 @@
+#include "webServer.h"
+#include <signal.h>
 // **************************************************************************************
 // * processRequest,
 //   - Return HTTP code to be sent back

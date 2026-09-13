@@ -1,6 +1,6 @@
 #include "webServer.h"
 #include <signal.h>
-void saveFile(sockFd, filename);
+
 // *************************************************************************
 // * processConnect()
 // *************************************************************************
@@ -24,8 +24,6 @@ int processConnection(int sockFd) {
     sendFile(sockFd, filename);
   } else if (connectionResponse == 200 && request == HEAD) {
     sendHeader(sockFd, filename);
-  } else if (connectionResponse == 200 && request == POST) {
-    saveFile(sockFd, filename);
   }
   return 0;
 }
